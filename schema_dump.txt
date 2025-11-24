@@ -1,0 +1,12 @@
+CREATE TABLE `tbavaliacaocompetencia` (
+  `avaliacao_competencia_id` int NOT NULL AUTO_INCREMENT,
+  `avaliacao_id` int NOT NULL,
+  `competencia_id` int NOT NULL,
+  `nota` decimal(5,2) NOT NULL,
+  `observacao` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`avaliacao_competencia_id`),
+  KEY `avaliacao_id` (`avaliacao_id`),
+  KEY `competencia_id` (`competencia_id`),
+  CONSTRAINT `tbavaliacaocompetencia_ibfk_1` FOREIGN KEY (`avaliacao_id`) REFERENCES `tbavaliacao` (`avaliacao_id`) ON DELETE CASCADE,
+  CONSTRAINT `tbavaliacaocompetencia_ibfk_2` FOREIGN KEY (`competencia_id`) REFERENCES `tbcompetencia` (`competencia_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
